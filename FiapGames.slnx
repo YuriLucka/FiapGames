@@ -1,7 +1,7 @@
 <Solution>
-  <Project Path="Application/FiapCloudGames.Application.csproj" />
-  <Project Path="Domain/FiapCloudGames.Domain.csproj" />
   <Project Path="FiapCloudGames.API/FiapCloudGames.API.csproj" />
+  <Project Path="FiapCloudGames.Application/FiapCloudGames.Application.csproj" />
+  <Project Path="FiapCloudGames.Domain/FiapCloudGames.Domain.csproj" />
+  <Project Path="FiapCloudGames.Infrastructure/FiapCloudGames.Infrastructure.csproj" />
   <Project Path="FiapCloudGames.Utils/FiapCloudGames.Utils.csproj" />
-  <Project Path="Infrastructure/FiapCloudGames.Infrastructure.csproj" />
 </Solution>
