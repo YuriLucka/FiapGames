@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FiapCloudGames.Domain\FiapCloudGames.Domain.csproj" />
+    <ProjectReference Include="..\FiapCloudGames.Utils\FiapCloudGames.Utils.csproj" />
+  </ItemGroup>
+
 </Project>
