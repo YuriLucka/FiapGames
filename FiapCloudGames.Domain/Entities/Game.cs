@@ -1,5 +1,4 @@
 ﻿using FiapCloudGames.Domain.Exceptions;
-using System;
 
 namespace FiapCloudGames.Domain.Entities
 {
