@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace FiapCloudGames.Application.DTOs
 {
-    internal class GameDto
-    {
-    }
+    public record GameDto(
+      Guid Id,
+      string Title,
+      string? Description,
+      decimal Price,
+      bool IsActive,
+      DateTime CreatedAt
+  );
 }

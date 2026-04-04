@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FiapCloudGames.Application.DTOs;
 
 namespace FiapCloudGames.Application.Interfaces
 {
-    internal class IUserService
+    public interface IUserService
     {
+        Task<UserDto> GetByIdAsync(Guid id);
+        Task<IEnumerable<UserDto>> GetAllAsync();
+        Task<UserDto> CreateAsync(CreateUserDto dto);
+        Task<UserDto> UpdateAsync(Guid id, UpdateUserDto dto);
+        Task DeleteAsync(Guid id);
+        Task PromoteToAdminAsync(Guid id);
     }
 }

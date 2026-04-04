@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FiapCloudGames.Application.DTOs;
 
 namespace FiapCloudGames.Application.Interfaces
 {
-    internal class IGameService
+    public interface IGameService
     {
+        Task<GameDto> GetByIdAsync(Guid id);
+        Task<IEnumerable<GameDto>> GetAllAsync();
+        Task<GameDto> CreateAsync(CreateGameDto dto);
+        Task<GameDto> UpdateAsync(Guid id, UpdateGameDto dto);
+        Task DeleteAsync(Guid id);
+        Task<UserDto> AcquireGameAsync(Guid userId, Guid gameId);
     }
 }

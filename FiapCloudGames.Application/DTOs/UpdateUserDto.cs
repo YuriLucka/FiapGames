@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace FiapCloudGames.Application.DTOs
 {
-    public record CreateUserDto(
-        string Name,
-        string Email,
-        string Password
-    );
+    public record UpdateUserDto(
+       string Name,
+       string Email
+   );
 }
