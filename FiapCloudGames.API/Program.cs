@@ -2,6 +2,7 @@ using FiapCloudGames.API.Middleware;
 using FiapCloudGames.Application.Interfaces;
 using FiapCloudGames.Application.Services;
 using FiapCloudGames.Infrastructure;
+using FiapCloudGames.Infrastructure.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -101,5 +102,11 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    await AppDbContext.SeedAsync(db);
+}
 
 app.Run();
