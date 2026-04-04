@@ -1,0 +1,22 @@
+TECH CHALLENGE — FASE 1
+FIAP CLOUD GAMES (FCG)
+
+RELATÓRIO DE ENTREGA
+
+Nome do grupo:
+[Preencher nome do grupo]
+
+Participantes e usernames no Discord:
+- Yuri Lucka — [preencher username no Discord]
+- [Preencher nome do participante] — [preencher username no Discord]
+- [Preencher nome do participante] — [preencher username no Discord]
+- [Preencher nome do participante] — [preencher username no Discord]
+
+Link da documentação DDD (Miro ou equivalente):
+[Preencher link da documentação]
+
+Link do(s) repositório(s):
+[Preencher link do repositório]
+
+Link do vídeo:
+[Preencher link do vídeo no YouTube ou plataforma escolhida]
