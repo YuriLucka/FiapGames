@@ -2,6 +2,7 @@
   <Project Path="FiapCloudGames.API/FiapCloudGames.API.csproj" />
   <Project Path="FiapCloudGames.Application/FiapCloudGames.Application.csproj" />
   <Project Path="FiapCloudGames.Domain/FiapCloudGames.Domain.csproj" />
-  <Project Path="FiapCloudGames.Infrastructure/FiapCloudGames.Infrastructure.csproj" />
+  <Project Path="FiapCloudGames.Infrastructure/FiapCloudGames.Infrastructure.csproj" Id="5a74e66a-23f8-4e90-96f7-2d9ce7d470be" />
   <Project Path="FiapCloudGames.Utils/FiapCloudGames.Utils.csproj" />
+  <Project Path="FiapGames.Web/FiapGames.Web.csproj" Id="577133bf-9617-46d1-979b-b9b3a0b55137" />
 </Solution>
