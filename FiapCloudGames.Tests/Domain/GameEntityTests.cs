@@ -1,10 +1,5 @@
 ﻿using FiapCloudGames.Domain.Entities;
 using FiapCloudGames.Domain.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FiapCloudGames.Tests.Domain
 {
