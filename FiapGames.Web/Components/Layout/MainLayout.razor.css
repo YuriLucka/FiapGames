@@ -6,9 +6,11 @@
 
 main {
     flex: 1;
+    background-color: transparent
 }
 
 .sidebar {
+    border-right: 2px solid rgba(255, 255, 255, 0.15);
     background-image: linear-gradient(180deg, #EE2B47 0%, #C4122F 70%, #8B0000 100%);
 }
 
@@ -94,3 +96,8 @@ main {
         right: 0.75rem;
         top: 0.5rem;
     }
+
+article {
+    background-color: transparent;
+    padding-top: 5rem;
+}

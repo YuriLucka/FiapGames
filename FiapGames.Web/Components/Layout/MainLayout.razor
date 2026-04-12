@@ -1,6 +1,9 @@
-﻿@inherits LayoutComponentBase
+﻿@using FiapGames.Web.Components.Shared
+@inherits LayoutComponentBase
 
 <div class="page">
+    <TopBar />
+
     <div class="sidebar">
         <NavMenu />
     </div>
@@ -10,6 +13,7 @@
             @Body
         </article>
     </main>
+
 </div>
 
 <div id="blazor-error-ui">

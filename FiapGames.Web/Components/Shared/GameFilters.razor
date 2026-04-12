@@ -1,0 +1,34 @@
+﻿<div class="filters-container">
+    <div class="filter-group">
+        <label class="filter-label">Categoria</label>
+        <select class="filter-select" @bind="SelectedCategoria" @bind:after="NotifyChange">
+            <option value="">Todas</option>
+            @foreach (var cat in Categorias)
+            {
+                <option value="@cat">@cat</option>
+            }
+        </select>
+    </div>
+
+    <div class="filter-group">
+        <label class="filter-label">Preço</label>
+        <select class="filter-select" @bind="SelectedPreco" @bind:after="NotifyChange">
+            <option value="">Todos</option>
+            <option value="0">Gratuito</option>
+            <option value="1">Até R$ 25</option>
+            <option value="2">Até R$ 50</option>
+            <option value="3">Até R$ 100</option>
+        </select>
+    </div>
+
+    <div class="filter-group">
+        <label class="filter-label">Desenvolvedor</label>
+        <select class="filter-select" @bind="SelectedDesenvolvedor" @bind:after="NotifyChange">
+            <option value="">Todos</option>
+            @foreach (var dev in Desenvolvedores)
+            {
+                <option value="@dev">@dev</option>
+            }
+        </select>
+    </div>
+</div>
