@@ -1,0 +1,27 @@
+TECH CHALLENGE — FASE 1
+FIAP CLOUD GAMES (FCG)
+
+RELATÓRIO DE ENTREGA
+
+Nome do grupo - Grupo 04
+Yuri Lucka
+Rafael Gagliard
+Gustavo Tiano
+Carlos
+Pedro Custodio
+
+Participantes e usernames no Discord:
+- Yuri Lucka — Yuri Lucka - RM371938
+- Rafael Gagliard — Rafael Gagliard - RM371921
+- Gustavo Tiano — Gustavo Tiano - RM------
+- Carlos — Carlos - RM------
+- Pedro Custodio — Pedro Custodio - RM------
+
+Link da documentação DDD (Miro ou equivalente):
+https://miro.com/app/board/uXjVGnrZbLs=/
+
+Link do(s) repositório(s):
+https://github.com/YuriLucka/FiapGames
+
+Link do vídeo:
+[Preencher link do vídeo no YouTube ou plataforma escolhida]

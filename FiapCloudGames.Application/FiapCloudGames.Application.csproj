@@ -7,9 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\FiapCloudGames.Domain\FiapCloudGames.Domain.csproj" />
-    <ProjectReference Include="..\FiapCloudGames.Infrastructure\FiapCloudGames.Infrastructure.csproj" />
-    <ProjectReference Include="..\FiapCloudGames.Utils\FiapCloudGames.Utils.csproj" />
   </ItemGroup>
 
 </Project>
