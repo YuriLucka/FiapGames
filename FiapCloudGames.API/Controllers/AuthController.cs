@@ -15,7 +15,12 @@ namespace FiapCloudGames.API.Controllers
             _authService = authService;
         }
 
-        /// <summary>Realiza o login e retorna o token JWT.</summary>
+        /// <summary>
+        /// Realiza o login do usuário e retorna o token JWT para autenticação.
+        /// </summary>
+        /// <param name="dto">Dados de login (email e senha).</param>
+        /// <response code="200">Login realizado com sucesso.</response>
+        /// <response code="400">Credenciais inválidas.</response>
         [HttpPost("login")]
         [ProducesResponseType(typeof(TokenDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

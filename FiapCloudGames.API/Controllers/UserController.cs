@@ -16,7 +16,15 @@ namespace FiapCloudGames.API.Controllers
             _userService = userService;
         }
 
-        /// <summary>Cria um novo usuário.</summary>
+        /// <summary>
+        /// Cria um novo usuário na plataforma.
+        /// </summary>
+        /// <remarks>
+        /// Requisição anônima. Retorna o usuário criado e a URL para consulta.
+        /// </remarks>
+        /// <param name="dto">Dados para criação do usuário (nome, email, senha).</param>
+        /// <response code="201">Usuário criado com sucesso.</response>
+        /// <response code="400">Dados inválidos ou usuário já existente.</response>
         [HttpPost]
         [AllowAnonymous]
         [ProducesResponseType(typeof(UserDto), StatusCodes.Status201Created)]
@@ -27,7 +35,12 @@ namespace FiapCloudGames.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = user.Id }, user);
         }
 
-        /// <summary>Retorna um usuário pelo Id.</summary>
+        /// <summary>
+        /// Retorna os dados de um usuário pelo seu identificador.
+        /// </summary>
+        /// <param name="id">Identificador do usuário.</param>
+        /// <response code="200">Usuário encontrado.</response>
+        /// <response code="404">Usuário não encontrado.</response>
         [HttpGet("{id:int}")]
         [Authorize]
         [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
@@ -38,7 +51,10 @@ namespace FiapCloudGames.API.Controllers
             return Ok(user);
         }
 
-        /// <summary>Lista todos os usuários. Apenas Admin.</summary>
+        /// <summary>
+        /// Lista todos os usuários cadastrados. Apenas administradores podem acessar.
+        /// </summary>
+        /// <response code="200">Lista de usuários retornada com sucesso.</response>
         [HttpGet]
         [Authorize(Roles = "Admin")]
         [ProducesResponseType(typeof(IEnumerable<UserDto>), StatusCodes.Status200OK)]
@@ -48,7 +64,13 @@ namespace FiapCloudGames.API.Controllers
             return Ok(users);
         }
 
-        /// <summary>Atualiza dados do usuário.</summary>
+        /// <summary>
+        /// Atualiza os dados de um usuário existente.
+        /// </summary>
+        /// <param name="id">Identificador do usuário.</param>
+        /// <param name="dto">Novos dados do usuário (nome, email).</param>
+        /// <response code="200">Usuário atualizado com sucesso.</response>
+        /// <response code="400">Dados inválidos.</response>
         [HttpPut("{id:int}")]
         [Authorize]
         [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
@@ -59,7 +81,11 @@ namespace FiapCloudGames.API.Controllers
             return Ok(user);
         }
 
-        /// <summary>Remove um usuário. Apenas Admin.</summary>
+        /// <summary>
+        /// Remove um usuário do sistema. Apenas administradores podem remover usuários.
+        /// </summary>
+        /// <param name="id">Identificador do usuário.</param>
+        /// <response code="204">Usuário removido com sucesso.</response>
         [HttpDelete("{id:int}")]
         [Authorize(Roles = "Admin")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -69,7 +95,11 @@ namespace FiapCloudGames.API.Controllers
             return NoContent();
         }
 
-        /// <summary>Promove usuário para Admin. Apenas Admin.</summary>
+        /// <summary>
+        /// Promove um usuário para o papel de administrador. Apenas administradores podem promover.
+        /// </summary>
+        /// <param name="id">Identificador do usuário.</param>
+        /// <response code="204">Usuário promovido com sucesso.</response>
         [HttpPatch("{id:int}/promote")]
         [Authorize(Roles = "Admin")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
