@@ -61,7 +61,7 @@ Domain → (nenhuma dependência externa)
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/FiapCloudGames.git
+git clone https://github.com/YuriLucka/FiapGames.git
 cd FiapCloudGames
 ```
 
@@ -281,14 +281,15 @@ FiapCloudGames/
 
 ## 👥 Grupo
 
-| Nome | Username Discord |
-|---|---|
-| (nome) | (username) |
+| Nome   | Username Discord            |
+|--------|-----------------------------|
+| Yuri   | Yuri Lucka - RM371938       |
+| Rafael | Rafael Gagliard - RM371921  |
 
 ---
 
 ## 🔗 Links
 
-- 📁 Repositório: *(link do GitHub)*
-- 📊 Documentação DDD (Event Storming): *(link do Miro)*
-- 🎥 Vídeo de apresentação: *(link do YouTube)*
+- 📁 Repositório: *https://github.com/YuriLucka/FiapGames*
+- 📊 Documentação DDD (Event Storming): *https://miro.com/app/board/uXjVGnrZbLs=/*
+- 🎥 Vídeo de apresentação: *link do YouTube*
