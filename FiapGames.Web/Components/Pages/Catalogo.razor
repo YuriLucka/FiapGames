@@ -1,0 +1,12 @@
+﻿@page "/"
+
+@using FiapGames.Web.Components.Shared;
+
+<SearchBar OnSearch="HandleSearch" Placeholder="Buscar jogo" />
+
+@code {
+    private void HandleSearch(string termo)
+    {
+        // filtra o catálogo com o termo recebido
+    }
+}

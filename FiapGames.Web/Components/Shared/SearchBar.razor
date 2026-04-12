@@ -1,0 +1,21 @@
+﻿<div class="search-container">
+    <div class="search-wrapper">
+
+        <span class="search-icon">
+            <img src="/icons/magnifying-glass-solid-full.svg" alt="" />
+        </span>
+
+        <input type="text"
+               class="search-input"
+               placeholder="@Placeholder"
+               @bind="SearchText"
+               @bind:event="oninput"
+               @onkeydown="HandleKeyDown" />
+
+        @if (!string.IsNullOrEmpty(SearchText))
+        {
+            <button class="search-clear" @onclick="ClearSearch">✕</button>
+        }
+
+    </div>
+</div>
