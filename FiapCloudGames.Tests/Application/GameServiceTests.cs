@@ -74,10 +74,10 @@ namespace FiapCloudGames.Tests.Application
         [Fact]
         public async Task GetByIdAsync_DeveLancarExcecao_QuandoNaoExistir()
         {
-            _gameRepoMock.Setup(r => r.GetByIdAsync(It.IsAny<Guid>())).ReturnsAsync((Game?)null);
+            _gameRepoMock.Setup(r => r.GetByIdAsync(It.IsAny<int>())).ReturnsAsync((Game?)null);
 
             await Assert.ThrowsAsync<DomainException>(() =>
-                _gameService.GetByIdAsync(Guid.NewGuid()));
+                _gameService.GetByIdAsync(999));
         }
 
         // ── UpdateAsync ─────────────────────────────────────────────────────────

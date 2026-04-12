@@ -13,6 +13,9 @@ namespace FiapCloudGames.Infrastructure.Data.Mappings
 
             builder.HasKey(u => u.Id);
 
+            builder.Property(u => u.Id)
+                .ValueGeneratedOnAdd();
+
             builder.Property(u => u.Name)
                 .IsRequired()
                 .HasMaxLength(100);

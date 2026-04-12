@@ -7,7 +7,7 @@ namespace FiapCloudGames.Domain.Entities
 {
     public class User
     {
-        public Guid Id { get; private set; }
+        public int Id { get; }
         public string Name { get; private set; } = string.Empty;
         public Email Email { get; private set; } = null!;
         public string PasswordHash { get; private set; } = string.Empty;
@@ -27,7 +27,6 @@ namespace FiapCloudGames.Domain.Entities
 
             ValidatePasswordHash(passwordHash);
 
-            Id = Guid.NewGuid();
             Name = name;
             Email = new Email(email);
             PasswordHash = passwordHash;

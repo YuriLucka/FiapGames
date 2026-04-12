@@ -4,7 +4,7 @@ namespace FiapCloudGames.Domain.Entities
 {
     public class Game
     {
-        public Guid Id { get; private set; }
+        public int Id { get; }
         public string Title { get; private set; } = string.Empty;
         public string? Description { get; private set; }
         public decimal Price { get; private set; }
@@ -22,7 +22,6 @@ namespace FiapCloudGames.Domain.Entities
             if (price < 0)
                 throw new DomainException("Preço não pode ser negativo.");
 
-            Id = Guid.NewGuid();
             Title = title;
             Price = price;
             Description = description;

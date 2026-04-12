@@ -42,10 +42,10 @@ namespace FiapCloudGames.Tests.Application
         [Fact]
         public async Task GetByIdAsync_DeveLancarExcecao_QuandoNaoExistir()
         {
-            _userRepoMock.Setup(r => r.GetByIdAsync(It.IsAny<Guid>())).ReturnsAsync((User?)null);
+            _userRepoMock.Setup(r => r.GetByIdAsync(It.IsAny<int>())).ReturnsAsync((User?)null);
 
             await Assert.ThrowsAsync<DomainException>(() =>
-                _userService.GetByIdAsync(Guid.NewGuid()));
+                _userService.GetByIdAsync(999));
         }
 
         // ── CreateAsync ─────────────────────────────────────────────────────────
@@ -115,10 +115,10 @@ namespace FiapCloudGames.Tests.Application
         [Fact]
         public async Task DeleteAsync_DeveLancarExcecao_QuandoUserNaoExistir()
         {
-            _userRepoMock.Setup(r => r.GetByIdAsync(It.IsAny<Guid>())).ReturnsAsync((User?)null);
+            _userRepoMock.Setup(r => r.GetByIdAsync(It.IsAny<int>())).ReturnsAsync((User?)null);
 
             await Assert.ThrowsAsync<DomainException>(() =>
-                _userService.DeleteAsync(Guid.NewGuid()));
+                _userService.DeleteAsync(999));
         }
 
         // ── PromoteToAdmin ──────────────────────────────────────────────────────

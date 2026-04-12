@@ -1,7 +1,7 @@
 ﻿namespace FiapCloudGames.Application.DTOs
 {
     public record GameDto(
-      Guid Id,
+      int Id,
       string Title,
       string? Description,
       decimal Price,

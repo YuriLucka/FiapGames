@@ -27,11 +27,11 @@ namespace FiapCloudGames.API.Controllers
         }
 
         /// <summary>Retorna um jogo pelo Id.</summary>
-        [HttpGet("{id:guid}")]
+        [HttpGet("{id:int}")]
         [Authorize]
         [ProducesResponseType(typeof(GameDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetById(Guid id)
+        public async Task<IActionResult> GetById(int id)
         {
             var game = await _gameService.GetByIdAsync(id);
             return Ok(game);
@@ -49,32 +49,32 @@ namespace FiapCloudGames.API.Controllers
         }
 
         /// <summary>Atualiza um jogo. Apenas Admin.</summary>
-        [HttpPut("{id:guid}")]
+        [HttpPut("{id:int}")]
         [Authorize(Roles = "Admin")]
         [ProducesResponseType(typeof(GameDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update(Guid id, [FromBody] UpdateGameDto dto)
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateGameDto dto)
         {
             var game = await _gameService.UpdateAsync(id, dto);
             return Ok(game);
         }
 
         /// <summary>Remove um jogo. Apenas Admin.</summary>
-        [HttpDelete("{id:guid}")]
+        [HttpDelete("{id:int}")]
         [Authorize(Roles = "Admin")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> Delete(Guid id)
+        public async Task<IActionResult> Delete(int id)
         {
             await _gameService.DeleteAsync(id);
             return NoContent();
         }
 
         /// <summary>Usuário adquire um jogo para sua biblioteca.</summary>
-        [HttpPost("{gameId:guid}/acquire/{userId:guid}")]
+        [HttpPost("{gameId:int}/acquire/{userId:int}")]
         [Authorize]
         [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Acquire(Guid gameId, Guid userId)
+        public async Task<IActionResult> Acquire(int gameId, int userId)
         {
             var user = await _gameService.AcquireGameAsync(userId, gameId);
             return Ok(user);

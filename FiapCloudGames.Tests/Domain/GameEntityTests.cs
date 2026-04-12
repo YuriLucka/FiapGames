@@ -18,7 +18,7 @@ namespace FiapCloudGames.Tests.Domain
             Assert.Equal("Counter Strike", game.Title);
             Assert.Equal(59.90m, game.Price);
             Assert.True(game.IsActive);
-            Assert.NotEqual(Guid.Empty, game.Id);
+            Assert.NotEqual(0, game.Id);
         }
 
         [Fact]

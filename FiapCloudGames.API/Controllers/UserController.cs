@@ -28,11 +28,11 @@ namespace FiapCloudGames.API.Controllers
         }
 
         /// <summary>Retorna um usuário pelo Id.</summary>
-        [HttpGet("{id:guid}")]
+        [HttpGet("{id:int}")]
         [Authorize]
         [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetById(Guid id)
+        public async Task<IActionResult> GetById(int id)
         {
             var user = await _userService.GetByIdAsync(id);
             return Ok(user);
@@ -49,31 +49,31 @@ namespace FiapCloudGames.API.Controllers
         }
 
         /// <summary>Atualiza dados do usuário.</summary>
-        [HttpPut("{id:guid}")]
+        [HttpPut("{id:int}")]
         [Authorize]
         [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update(Guid id, [FromBody] UpdateUserDto dto)
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateUserDto dto)
         {
             var user = await _userService.UpdateAsync(id, dto);
             return Ok(user);
         }
 
         /// <summary>Remove um usuário. Apenas Admin.</summary>
-        [HttpDelete("{id:guid}")]
+        [HttpDelete("{id:int}")]
         [Authorize(Roles = "Admin")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> Delete(Guid id)
+        public async Task<IActionResult> Delete(int id)
         {
             await _userService.DeleteAsync(id);
             return NoContent();
         }
 
         /// <summary>Promove usuário para Admin. Apenas Admin.</summary>
-        [HttpPatch("{id:guid}/promote")]
+        [HttpPatch("{id:int}/promote")]
         [Authorize(Roles = "Admin")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> Promote(Guid id)
+        public async Task<IActionResult> Promote(int id)
         {
             await _userService.PromoteToAdminAsync(id);
             return NoContent();

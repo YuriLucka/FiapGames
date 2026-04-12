@@ -4,10 +4,10 @@ namespace FiapCloudGames.Domain.Interfaces
 {
     public interface IGameRepository
     {
-        Task<Game?> GetByIdAsync(Guid id);
+        Task<Game?> GetByIdAsync(int id);
         Task<IEnumerable<Game>> GetAllAsync();
         Task AddAsync(Game game);
         Task UpdateAsync(Game game);
-        Task DeleteAsync(Guid id);
+        Task DeleteAsync(int id);
     }
 }
