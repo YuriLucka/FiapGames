@@ -6,5 +6,5 @@ public partial class GameCard
 {
     [Parameter, EditorRequired] public string Title { get; set; } = string.Empty;
     [Parameter, EditorRequired] public string Price { get; set; } = string.Empty;
-    [Parameter] public string ImageUrl { get; set; } = "/images/placeholder.png";
+    [Parameter] public string ImageUrl { get; set; };
 }
