@@ -18,6 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FiapCloudGames.API\FiapCloudGames.API.csproj" />
     <ProjectReference Include="..\FiapCloudGames.Application\FiapCloudGames.Application.csproj" />
     <ProjectReference Include="..\FiapCloudGames.Domain\FiapCloudGames.Domain.csproj" />
   </ItemGroup>

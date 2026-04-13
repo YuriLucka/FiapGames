@@ -10,5 +10,6 @@ namespace FiapCloudGames.Application.Interfaces
         Task<UserDto> UpdateAsync(int id, UpdateUserDto dto);
         Task DeleteAsync(int id);
         Task PromoteToAdminAsync(int id);
+        Task<IEnumerable<MeusJogosViewModel>> ObterJogosDoUsuarioAsync(int usuarioId);
     }
 }

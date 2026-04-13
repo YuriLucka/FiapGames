@@ -77,6 +77,20 @@ namespace FiapCloudGames.Application.Services
             await _userRepository.UpdateAsync(user);
         }
 
+        public async Task<IEnumerable<MeusJogosViewModel>> ObterJogosDoUsuarioAsync(int usuarioId)
+        {
+            var user = await _userRepository.GetByIdAsync(usuarioId)
+                ?? throw new DomainException($"Usuário com Id '{usuarioId}' não encontrado.");
+
+            return user.AcquiredGames.Select(g => new MeusJogosViewModel(
+                g.Id,
+                g.Title,
+                g.Description,
+                g.Price,
+                g.CreatedAt
+            ));
+        }
+
         private static UserDto MapToDto(User user) => new(
             user.Id,
             user.Name,
