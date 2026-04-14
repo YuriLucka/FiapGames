@@ -74,10 +74,10 @@ namespace FiapCloudGames.Tests.Application
         [Fact]
         public async Task GetByIdAsync_DeveLancarExcecao_QuandoNaoExistir()
         {
-            _gameRepoMock.Setup(r => r.GetByIdAsync(It.IsAny<Guid>())).ReturnsAsync((Game?)null);
+            _gameRepoMock.Setup(r => r.GetByIdAsync(It.IsAny<int>())).ReturnsAsync((Game?)null);
 
             await Assert.ThrowsAsync<DomainException>(() =>
-                _gameService.GetByIdAsync(Guid.NewGuid()));
+                _gameService.GetByIdAsync(999));
         }
 
         // ── UpdateAsync ─────────────────────────────────────────────────────────
@@ -102,7 +102,7 @@ namespace FiapCloudGames.Tests.Application
         [Fact]
         public async Task AcquireGameAsync_DeveAdicionarJogoAoBiblioteca_QuandoJogoAtivo()
         {
-            var user = new User("Yuri", "yuri@fiap.com", "hash");
+            var user = new User("Teste", "teste@fiap.com", "hash");
             var game = new Game("CS2", 59.90m);
 
             _userRepoMock.Setup(r => r.GetByIdAsync(user.Id)).ReturnsAsync(user);
@@ -118,7 +118,7 @@ namespace FiapCloudGames.Tests.Application
         [Fact]
         public async Task AcquireGameAsync_DeveLancarExcecao_QuandoJogoInativo()
         {
-            var user = new User("Yuri", "yuri@fiap.com", "hash");
+            var user = new User("Teste", "teste@fiap.com", "hash");
             var game = new Game("CS2", 59.90m);
             game.Deactivate();
 
@@ -134,7 +134,7 @@ namespace FiapCloudGames.Tests.Application
         [Fact]
         public async Task AcquireGameAsync_DeveLancarExcecao_QuandoJogoJaNaBiblioteca()
         {
-            var user = new User("Yuri", "yuri@fiap.com", "hash");
+            var user = new User("Teste", "teste@fiap.com", "hash");
             var game = new Game("CS2", 59.90m);
 
             user.AddGame(game); // já está na biblioteca

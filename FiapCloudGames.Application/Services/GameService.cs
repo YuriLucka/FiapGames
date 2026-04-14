@@ -17,7 +17,7 @@ namespace FiapCloudGames.Application.Services
             _userRepository = userRepository;
         }
 
-        public async Task<GameDto> GetByIdAsync(Guid id)
+        public async Task<GameDto> GetByIdAsync(int id)
         {
             var game = await _gameRepository.GetByIdAsync(id)
                 ?? throw new DomainException($"Jogo com Id '{id}' não encontrado.");
@@ -38,7 +38,7 @@ namespace FiapCloudGames.Application.Services
             return MapToDto(game);
         }
 
-        public async Task<GameDto> UpdateAsync(Guid id, UpdateGameDto dto)
+        public async Task<GameDto> UpdateAsync(int id, UpdateGameDto dto)
         {
             var game = await _gameRepository.GetByIdAsync(id)
                 ?? throw new DomainException($"Jogo com Id '{id}' não encontrado.");
@@ -49,7 +49,7 @@ namespace FiapCloudGames.Application.Services
             return MapToDto(game);
         }
 
-        public async Task DeleteAsync(Guid id)
+        public async Task DeleteAsync(int id)
         {
             var game = await _gameRepository.GetByIdAsync(id)
                 ?? throw new DomainException($"Jogo com Id '{id}' não encontrado.");
@@ -57,7 +57,7 @@ namespace FiapCloudGames.Application.Services
             await _gameRepository.DeleteAsync(game.Id);
         }
 
-        public async Task<UserDto> AcquireGameAsync(Guid userId, Guid gameId)
+        public async Task<UserDto> AcquireGameAsync(int userId, int gameId)
         {
             var user = await _userRepository.GetByIdAsync(userId)
                 ?? throw new DomainException($"Usuário com Id '{userId}' não encontrado.");

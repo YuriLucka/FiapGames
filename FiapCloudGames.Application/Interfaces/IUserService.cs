@@ -4,11 +4,11 @@ namespace FiapCloudGames.Application.Interfaces
 {
     public interface IUserService
     {
-        Task<UserDto> GetByIdAsync(Guid id);
+        Task<UserDto> GetByIdAsync(int id);
         Task<IEnumerable<UserDto>> GetAllAsync();
         Task<UserDto> CreateAsync(CreateUserDto dto);
-        Task<UserDto> UpdateAsync(Guid id, UpdateUserDto dto);
-        Task DeleteAsync(Guid id);
-        Task PromoteToAdminAsync(Guid id);
+        Task<UserDto> UpdateAsync(int id, UpdateUserDto dto);
+        Task DeleteAsync(int id);
+        Task PromoteToAdminAsync(int id);
     }
 }

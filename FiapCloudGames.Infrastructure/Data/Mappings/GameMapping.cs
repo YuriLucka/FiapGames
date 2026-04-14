@@ -12,6 +12,9 @@ namespace FiapCloudGames.Infrastructure.Data.Mappings
 
             builder.HasKey(g => g.Id);
 
+            builder.Property(g => g.Id)
+                .ValueGeneratedOnAdd();
+
             builder.Property(g => g.Title)
                 .IsRequired()
                 .HasMaxLength(200);

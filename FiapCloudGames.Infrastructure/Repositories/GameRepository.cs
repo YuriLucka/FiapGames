@@ -14,7 +14,7 @@ namespace FiapCloudGames.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<Game?> GetByIdAsync(Guid id)
+        public async Task<Game?> GetByIdAsync(int id)
         {
             return await _context.Games.FindAsync(id);
         }
@@ -36,7 +36,7 @@ namespace FiapCloudGames.Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(Guid id)
+        public async Task DeleteAsync(int id)
         {
             var game = await _context.Games.FindAsync(id);
             if (game is not null)

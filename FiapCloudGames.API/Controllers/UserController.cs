@@ -16,7 +16,15 @@ namespace FiapCloudGames.API.Controllers
             _userService = userService;
         }
 
-        /// <summary>Cria um novo usuário.</summary>
+        /// <summary>
+        /// Cria um novo usuário na plataforma.
+        /// </summary>
+        /// <remarks>
+        /// Requisição anônima. Retorna o usuário criado e a URL para consulta.
+        /// </remarks>
+        /// <param name="dto">Dados para criação do usuário (nome, email, senha).</param>
+        /// <response code="201">Usuário criado com sucesso.</response>
+        /// <response code="400">Dados inválidos ou usuário já existente.</response>
         [HttpPost]
         [AllowAnonymous]
         [ProducesResponseType(typeof(UserDto), StatusCodes.Status201Created)]
@@ -27,18 +35,26 @@ namespace FiapCloudGames.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = user.Id }, user);
         }
 
-        /// <summary>Retorna um usuário pelo Id.</summary>
-        [HttpGet("{id:guid}")]
+        /// <summary>
+        /// Retorna os dados de um usuário pelo seu identificador.
+        /// </summary>
+        /// <param name="id">Identificador do usuário.</param>
+        /// <response code="200">Usuário encontrado.</response>
+        /// <response code="404">Usuário não encontrado.</response>
+        [HttpGet("{id:int}")]
         [Authorize]
         [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetById(Guid id)
+        public async Task<IActionResult> GetById(int id)
         {
             var user = await _userService.GetByIdAsync(id);
             return Ok(user);
         }
 
-        /// <summary>Lista todos os usuários. Apenas Admin.</summary>
+        /// <summary>
+        /// Lista todos os usuários cadastrados. Apenas administradores podem acessar.
+        /// </summary>
+        /// <response code="200">Lista de usuários retornada com sucesso.</response>
         [HttpGet]
         [Authorize(Roles = "Admin")]
         [ProducesResponseType(typeof(IEnumerable<UserDto>), StatusCodes.Status200OK)]
@@ -48,32 +64,46 @@ namespace FiapCloudGames.API.Controllers
             return Ok(users);
         }
 
-        /// <summary>Atualiza dados do usuário.</summary>
-        [HttpPut("{id:guid}")]
+        /// <summary>
+        /// Atualiza os dados de um usuário existente.
+        /// </summary>
+        /// <param name="id">Identificador do usuário.</param>
+        /// <param name="dto">Novos dados do usuário (nome, email).</param>
+        /// <response code="200">Usuário atualizado com sucesso.</response>
+        /// <response code="400">Dados inválidos.</response>
+        [HttpPut("{id:int}")]
         [Authorize]
         [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update(Guid id, [FromBody] UpdateUserDto dto)
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateUserDto dto)
         {
             var user = await _userService.UpdateAsync(id, dto);
             return Ok(user);
         }
 
-        /// <summary>Remove um usuário. Apenas Admin.</summary>
-        [HttpDelete("{id:guid}")]
+        /// <summary>
+        /// Remove um usuário do sistema. Apenas administradores podem remover usuários.
+        /// </summary>
+        /// <param name="id">Identificador do usuário.</param>
+        /// <response code="204">Usuário removido com sucesso.</response>
+        [HttpDelete("{id:int}")]
         [Authorize(Roles = "Admin")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> Delete(Guid id)
+        public async Task<IActionResult> Delete(int id)
         {
             await _userService.DeleteAsync(id);
             return NoContent();
         }
 
-        /// <summary>Promove usuário para Admin. Apenas Admin.</summary>
-        [HttpPatch("{id:guid}/promote")]
+        /// <summary>
+        /// Promove um usuário para o papel de administrador. Apenas administradores podem promover.
+        /// </summary>
+        /// <param name="id">Identificador do usuário.</param>
+        /// <response code="204">Usuário promovido com sucesso.</response>
+        [HttpPatch("{id:int}/promote")]
         [Authorize(Roles = "Admin")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> Promote(Guid id)
+        public async Task<IActionResult> Promote(int id)
         {
             await _userService.PromoteToAdminAsync(id);
             return NoContent();

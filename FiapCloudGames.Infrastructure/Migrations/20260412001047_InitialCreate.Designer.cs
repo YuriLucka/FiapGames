@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FiapCloudGames.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260404014137_InitialCreate")]
+    [Migration("20260412001047_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -27,9 +27,11 @@ namespace FiapCloudGames.Infrastructure.Migrations
 
             modelBuilder.Entity("FiapCloudGames.Domain.Entities.Game", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -56,9 +58,11 @@ namespace FiapCloudGames.Infrastructure.Migrations
 
             modelBuilder.Entity("FiapCloudGames.Domain.Entities.User", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -90,11 +94,11 @@ namespace FiapCloudGames.Infrastructure.Migrations
 
             modelBuilder.Entity("GameUser", b =>
                 {
-                    b.Property<Guid>("AcquiredGamesId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("AcquiredGamesId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("AcquiredGamesId", "UserId");
 

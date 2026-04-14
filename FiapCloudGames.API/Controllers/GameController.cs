@@ -16,7 +16,10 @@ namespace FiapCloudGames.API.Controllers
             _gameService = gameService;
         }
 
-        /// <summary>Lista todos os jogos.</summary>
+        /// <summary>
+        /// Lista todos os jogos cadastrados na plataforma.
+        /// </summary>
+        /// <response code="200">Lista de jogos retornada com sucesso.</response>
         [HttpGet]
         [Authorize]
         [ProducesResponseType(typeof(IEnumerable<GameDto>), StatusCodes.Status200OK)]
@@ -26,18 +29,28 @@ namespace FiapCloudGames.API.Controllers
             return Ok(games);
         }
 
-        /// <summary>Retorna um jogo pelo Id.</summary>
-        [HttpGet("{id:guid}")]
+        /// <summary>
+        /// Retorna os dados de um jogo pelo seu identificador.
+        /// </summary>
+        /// <param name="id">Identificador do jogo.</param>
+        /// <response code="200">Jogo encontrado.</response>
+        /// <response code="404">Jogo não encontrado.</response>
+        [HttpGet("{id:int}")]
         [Authorize]
         [ProducesResponseType(typeof(GameDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetById(Guid id)
+        public async Task<IActionResult> GetById(int id)
         {
             var game = await _gameService.GetByIdAsync(id);
             return Ok(game);
         }
 
-        /// <summary>Cria um novo jogo. Apenas Admin.</summary>
+        /// <summary>
+        /// Cria um novo jogo na plataforma. Apenas administradores podem criar.
+        /// </summary>
+        /// <param name="dto">Dados para criação do jogo.</param>
+        /// <response code="201">Jogo criado com sucesso.</response>
+        /// <response code="400">Dados inválidos.</response>
         [HttpPost]
         [Authorize(Roles = "Admin")]
         [ProducesResponseType(typeof(GameDto), StatusCodes.Status201Created)]
@@ -48,33 +61,49 @@ namespace FiapCloudGames.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = game.Id }, game);
         }
 
-        /// <summary>Atualiza um jogo. Apenas Admin.</summary>
-        [HttpPut("{id:guid}")]
+        /// <summary>
+        /// Atualiza os dados de um jogo existente. Apenas administradores podem atualizar.
+        /// </summary>
+        /// <param name="id">Identificador do jogo.</param>
+        /// <param name="dto">Novos dados do jogo.</param>
+        /// <response code="200">Jogo atualizado com sucesso.</response>
+        /// <response code="400">Dados inválidos.</response>
+        [HttpPut("{id:int}")]
         [Authorize(Roles = "Admin")]
         [ProducesResponseType(typeof(GameDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update(Guid id, [FromBody] UpdateGameDto dto)
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateGameDto dto)
         {
             var game = await _gameService.UpdateAsync(id, dto);
             return Ok(game);
         }
 
-        /// <summary>Remove um jogo. Apenas Admin.</summary>
-        [HttpDelete("{id:guid}")]
+        /// <summary>
+        /// Remove um jogo da plataforma. Apenas administradores podem remover.
+        /// </summary>
+        /// <param name="id">Identificador do jogo.</param>
+        /// <response code="204">Jogo removido com sucesso.</response>
+        [HttpDelete("{id:int}")]
         [Authorize(Roles = "Admin")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> Delete(Guid id)
+        public async Task<IActionResult> Delete(int id)
         {
             await _gameService.DeleteAsync(id);
             return NoContent();
         }
 
-        /// <summary>Usuário adquire um jogo para sua biblioteca.</summary>
-        [HttpPost("{gameId:guid}/acquire/{userId:guid}")]
+        /// <summary>
+        /// Usuário adquire um jogo para sua biblioteca.
+        /// </summary>
+        /// <param name="gameId">Identificador do jogo.</param>
+        /// <param name="userId">Identificador do usuário.</param>
+        /// <response code="200">Jogo adquirido com sucesso.</response>
+        /// <response code="400">Dados inválidos ou aquisição não permitida.</response>
+        [HttpPost("{gameId:int}/acquire/{userId:int}")]
         [Authorize]
         [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Acquire(Guid gameId, Guid userId)
+        public async Task<IActionResult> Acquire(int gameId, int userId)
         {
             var user = await _gameService.AcquireGameAsync(userId, gameId);
             return Ok(user);
