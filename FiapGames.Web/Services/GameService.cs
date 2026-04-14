@@ -1,5 +1,6 @@
 ﻿using FiapCloudGames.Utils.DTOs;
 using FiapCloudGames.Utils.Interfaces;
+using FiapGames.Web.Constants;
 
 namespace FiapGames.Web.Services
 {
@@ -14,9 +15,13 @@ namespace FiapGames.Web.Services
             _client = client;
         }
 
-        public Task<UserDto> AcquireGameAsync(Guid userId, Guid gameId)
+        public async Task<UserDto> AcquireGameAsync(Guid userId, Guid gameId)
         {
+
             throw new NotImplementedException();
+
+            string Endpoint = GameEndpoint.AcquireGame(userId, gameId);
+            var teste = await _client.PostAsJsonAsync(Endpoint, "");
         }
 
         public Task<GameDto> CreateAsync(CreateGameDto dto)

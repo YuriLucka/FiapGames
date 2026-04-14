@@ -10,8 +10,4 @@
     <ProjectReference Include="..\FiapCloudGames.Utils\FiapCloudGames.Utils.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Mappers\" />
-  </ItemGroup>
-
 </Project>

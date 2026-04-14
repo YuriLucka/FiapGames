@@ -20,7 +20,7 @@ if (!app.Environment.IsDevelopment())
 
 builder.Services.AddHttpClient<IGameService, GameService>(client =>
 {
-    client.BaseAddress = new Uri("https://sua-api.com/");
+    client.BaseAddress = new Uri("http://localhost:5062");
 });
 
 app.UseHttpsRedirection();
