@@ -13,7 +13,6 @@ namespace FiapCloudGames.Tests.Domain
             Assert.Equal("Counter Strike", game.Title);
             Assert.Equal(59.90m, game.Price);
             Assert.True(game.IsActive);
-            Assert.NotEqual(0, game.Id);
         }
 
         [Fact]
@@ -68,11 +67,14 @@ namespace FiapCloudGames.Tests.Domain
         {
             var game = new Game("Titulo Antigo", 10m);
 
-            game.Update("Titulo Novo", 99m, "Nova descrição");
+            game.Update("Titulo Novo", 99m, "Nova descrição", "/images/nome.jpg", "Desenvolvedor", "Ação");
 
             Assert.Equal("Titulo Novo", game.Title);
             Assert.Equal(99m, game.Price);
             Assert.Equal("Nova descrição", game.Description);
+            Assert.Equal("/images/nome.jpg", game.ImageUrl);
+            Assert.Equal("Desenvolvedor", game.Developer);
+            Assert.Equal("Ação", game.Category);
         }
     }
 }

@@ -22,6 +22,15 @@ namespace FiapCloudGames.Infrastructure.Data.Mappings
             builder.Property(g => g.Description)
                 .HasMaxLength(1000);
 
+            builder.Property(g => g.ImageUrl)
+                .HasMaxLength(500);
+
+            builder.Property(g => g.Developer)
+                .HasMaxLength(200);
+
+            builder.Property(g => g.Category)
+                .HasMaxLength(100);
+
             builder.Property(g => g.Price)
                 .IsRequired()
                 .HasColumnType("decimal(18,2)");

@@ -1,4 +1,5 @@
-﻿using FiapCloudGames.Domain.Entities;
+﻿using BCrypt.Net;
+using FiapCloudGames.Domain.Entities;
 using FiapCloudGames.Domain.Enums;
 using FiapCloudGames.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;

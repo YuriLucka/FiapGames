@@ -9,6 +9,12 @@
         /// <summary>Preço do jogo.</summary>
         decimal Price,
         /// <summary>Descrição do jogo.</summary>
-        string? Description
+        string? Description,
+        /// <summary>Caminho para imagem do jogo.</summary>
+        string? Image,
+        /// <summary>Desenvolvedor do Jogo</summary>
+        string? Developer,
+        /// <summary>Categoria do Jogo</summary>
+        string? Category
     );
 }

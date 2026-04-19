@@ -43,7 +43,7 @@ namespace FiapCloudGames.Application.Services
             var game = await _gameRepository.GetByIdAsync(id)
                 ?? throw new DomainException($"Jogo com Id '{id}' não encontrado.");
 
-            game.Update(dto.Title, dto.Price, dto.Description);
+            game.Update(dto.Title, dto.Price, dto.Description, dto.Image, dto.Developer, dto.Category);
             await _gameRepository.UpdateAsync(game);
 
             return MapToDto(game);

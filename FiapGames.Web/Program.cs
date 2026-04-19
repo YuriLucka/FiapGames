@@ -18,11 +18,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-builder.Services.AddHttpClient<IGameService, GameService>(client =>
-{
-    client.BaseAddress = new Uri("http://localhost:5062");
-});
-
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();

@@ -86,7 +86,7 @@ namespace FiapCloudGames.Tests.Application
         public async Task UpdateAsync_DeveAtualizar_QuandoJogoExistir()
         {
             var game = new Game("Titulo Antigo", 10m);
-            var dto = new UpdateGameDto("Titulo Novo", 99m, "Desc");
+            var dto = new UpdateGameDto("Titulo Novo", 99m, "Desc", "/images/capa.jpeg", "Desenvolvedor", "Categoria");
 
             _gameRepoMock.Setup(r => r.GetByIdAsync(game.Id)).ReturnsAsync(game);
             _gameRepoMock.Setup(r => r.UpdateAsync(It.IsAny<Game>())).Returns(Task.CompletedTask);

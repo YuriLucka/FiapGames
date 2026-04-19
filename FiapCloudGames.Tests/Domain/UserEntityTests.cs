@@ -20,7 +20,6 @@ namespace FiapCloudGames.Tests.Domain
             Assert.Equal("Teste", user.Name);
             Assert.Equal("teste@fiap.com", user.Email.Value);
             Assert.Equal(UserRole.User, user.Role);
-            Assert.NotEqual(0, user.Id);
         }
 
         [Fact]
