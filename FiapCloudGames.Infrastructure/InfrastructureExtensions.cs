@@ -16,7 +16,7 @@ namespace FiapCloudGames.Infrastructure
             IConfiguration configuration)
         {
             services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(
+                options.UseNpgsql(
                     configuration.GetConnectionString("DefaultConnection"),
                     sql => sql.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)
                 ));

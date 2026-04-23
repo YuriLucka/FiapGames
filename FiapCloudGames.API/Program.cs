@@ -12,6 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+builder.Services.AddInfrastructure(builder.Configuration);
+
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IGameService, GameService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
@@ -109,6 +111,7 @@ app.MapControllers();
 
 using (var scope = app.Services.CreateScope())
 {
+
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     await AppDbContext.SeedAsync(db);
 }
