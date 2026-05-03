@@ -285,11 +285,14 @@ FiapCloudGames/
 |--------|-----------------------------|
 | Yuri   | Yuri Lucka - RM371938       |
 | Rafael | Rafael Gagliard - RM371921  |
+| Carlos | CarlosEM_ - RM371683        |
+| Pedro  | Pedro Custodio - RM373420   |
+
 
 ---
 
 ## 🔗 Links
 
 - 📁 Repositório: *https://github.com/YuriLucka/FiapGames*
-- 📊 Documentação DDD (Event Storming): *https://miro.com/app/board/uXjVGnrZbLs=/*
-- 🎥 Vídeo de apresentação: *link do YouTube*
+- 📊 Documentação DDD (Event Storming): *https://miro.com/app/board/uXjVHfBBYHk=/*
+- 🎥 Vídeo de apresentação: *https://www.youtube.com/watch?v=6V_RFjVrsLA*

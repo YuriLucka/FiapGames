@@ -3,25 +3,19 @@ FIAP CLOUD GAMES (FCG)
 
 RELATÓRIO DE ENTREGA
 
-Nome do grupo - Grupo 04
-Yuri Lucka
-Rafael Gagliard
-Gustavo Tiano
-Carlos
-Pedro Custodio
+Nome do grupo - Grupo 115
 
 Participantes e usernames no Discord:
 - Yuri Lucka — Yuri Lucka - RM371938
 - Rafael Gagliard — Rafael Gagliard - RM371921
-- Gustavo Tiano — Gustavo Tiano - RM------
-- Carlos — Carlos - RM------
-- Pedro Custodio — Pedro Custodio - RM------
+- Carlos — Carlos - CarlosEM_ - RM371683
+- Pedro Custodio — Pedro Custodio - RM373420
 
 Link da documentação DDD (Miro ou equivalente):
-https://miro.com/app/board/uXjVGnrZbLs=/
+https://miro.com/app/board/uXjVHfBBYHk=/
 
 Link do(s) repositório(s):
 https://github.com/YuriLucka/FiapGames
 
 Link do vídeo:
-[Preencher link do vídeo no YouTube ou plataforma escolhida]
+https://www.youtube.com/watch?v=6V_RFjVrsLA
