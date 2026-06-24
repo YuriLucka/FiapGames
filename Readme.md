@@ -62,7 +62,7 @@ Domain → (nenhuma dependência externa)
 
 ```bash
 git clone https://github.com/YuriLucka/FiapGames.git
-cd FiapCloudGames
+cd FiapGames
 ```
 
 ### 2. Configure o banco de dados
